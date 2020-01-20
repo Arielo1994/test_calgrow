@@ -1,0 +1,44 @@
+<nb-card >      
+      <nb-tabset>
+        <nb-tab tabTitle="Comparación">
+          <div class="summary-container" *ngIf="counts">
+            <div>
+              <div class="title">Sectores</div><div class="h6 center">{{counts.sectors}}</div>
+            </div>
+            <div>
+                <div class="title">Plantas</div><div class="h6 center">{{counts.plants}}</div>
+            </div>
+            <div>
+                <div class="title">Frutos </div><div class="h6 center">{{counts.fruits}}</div>
+            </div>
+          </div>
+          <div class="select-period">
+            <div class="h6 center">Temporadas</div>
+            <nb-select placeholder="Medida" [(selected)]="measureType" >
+                <nb-option value="polar" (click)="updateChartData()">Polar</nb-option>
+                <nb-option value="ecuatorial" (click)="updateChartData()">Ecuatorial</nb-option>
+            </nb-select>
+            <nb-select placeholder="Período" [(selected)]="type" >
+              <nb-option value="week" (click)="updateChartData()">Semanal</nb-option>
+              <nb-option value="month" (click)="updateChartData()">Mensual</nb-option>
+              <nb-option value="year" (click)="updateChartData()">Anual</nb-option>
+            </nb-select>
+          </div>
+          <chart type="line" [data]="data" [options]="options" *ngIf="data.labels.length" ></chart>         
+          
+        </nb-tab>
+        <nb-tab tabTitle="Última Temporada">
+            <div class="select-period">
+                <nb-select placeholder="Medida" [(selected)]="measureTypeCurrent" >
+                    <nb-option value="polar" (click)="updateCurrentChartData()">Polar</nb-option>
+                    <nb-option value="ecuatorial" (click)="updateCurrentChartData()">Ecuatorial</nb-option>
+                </nb-select>
+                <nb-select placeholder="Período" [(selected)]="typeCurrent" >
+                  <nb-option value="week" (click)="updateCurrentChartData()">Semanal</nb-option>
+                  <nb-option value="month" (click)="updateCurrentChartData()">Mensual</nb-option>
+                </nb-select>
+            </div>
+            <chart type="line" [data]="currentData" [options]="options" *ngIf="currentData.labels.length" ></chart>
+        </nb-tab>
+       </nb-tabset>  
+  </nb-card>

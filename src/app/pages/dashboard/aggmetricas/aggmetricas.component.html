@@ -1,0 +1,75 @@
+<mat-dialog-content>
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12 modal" [hidden]="isSelectionConfirmed">
+  <nb-card-body>
+    <nb-stepper #stepper>
+      <nb-step  [stepControl]="sectorForm" label="SECTOR">
+        <form [formGroup]="sectorForm" (ngSubmit)="onSectorSubmit()" class="step-container">
+          <p>Ahora selecciona uno de los sectores del campo elegido para continuar</p>
+          <div class="input-group">
+            <nb-select placeholder="Selecciona un sector" [(selected)]="selectedSectorItem" formControlName="sectorCtrl"
+              [fullWidth]="true">
+
+              <nb-option *ngFor="let sector of sectors" [value]="sector"> {{ sector.name }} </nb-option>
+
+            </nb-select>
+          </div>
+          <div class="end">
+          <button nbButton type="button" (click)="onSectorSubmit()" nbStepperNext>Confirmar selección</button>
+        </div>
+        </form>
+      </nb-step>
+      <nb-step [stepControl]="plantForm" label="PLANTA">
+        <form [formGroup]="plantForm" (ngSubmit)="onPlantSubmit()" class="step-container">
+          <p>Ahora selecciona una de las plantas del sector elegido para proceder a agregar metricas</p>
+          <div class="input-group">
+            <nb-select placeholder="Selecciona una planta" [(selected)]="selectedPlantItem" formControlName="plantCtrl"
+              [fullWidth]="true">
+
+              <nb-option *ngFor="let plant of plants" [value]="plant"> {{ plant.name }} </nb-option>
+
+            </nb-select>
+          </div>
+          <div class="end">
+          <button nbButton type="button" (click)="onPlantSubmit()" nbStepperNext>Confirmar selección</button>
+        </div>
+        </form>
+      </nb-step>
+      <nb-step [stepControl]="fruitForm" label="FRUTO">
+          <form [formGroup]="fruitForm" (ngSubmit)="onFruitSubmit()" class="step-container">
+            <p>Ahora selecciona una de las frutas de la planta elegida para proceder a agregar metricas</p>
+            <div class="input-group">
+              <nb-select placeholder="Selecciona una fruta" [(selected)]="selectedFruitItem" formControlName="fruitCtrl"
+                [fullWidth]="true">
+
+                <nb-option *ngFor="let fruit of fruits" [value]="fruit"> {{ fruit.name }} </nb-option>
+
+              </nb-select>
+            </div>
+            <div class="end">
+            <button nbButton type="submit" nbStepperNext>Confirmar selección</button>
+          </div>
+          </form>
+        </nb-step>
+    </nb-stepper>
+  </nb-card-body>
+</nb-card>
+
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12 text-center" [hidden]="!isSelectionConfirmed">
+  <nb-card-header>
+    <h5>Metricas de {{ selectedFieldName }} -> {{ selectedSectorName }} ->
+      {{ selectedPlantName }} -> {{ selectedFruitName }} </h5>
+  </nb-card-header>
+
+  <nb-card-body>
+    <form [formGroup]="metricas" (ngSubmit)="onMetricasSubmit()">
+        <input (keypress)="keyPress($event)" formControlName="ecuatorial" type="text" nbInput fullWidth status="success" placeholder="Introduzca Medida Ecuatorial">
+        <br>
+        <input class="mt-4" (keypress)="keyPress($event)" formControlName="polar" type="text" nbInput fullWidth status="success" placeholder="Introduzca Medida Polar">
+      
+        <div class="end">
+       <button nbButton type="submit" >Confirmar</button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>
+</mat-dialog-content>

@@ -1,0 +1,164 @@
+// @nebular theming framework
+@import '~@nebular/theme/styles/theming';
+// @nebular out of the box themes
+@import '~@nebular/theme/styles/themes';
+
+$nb-themes: nb-register-theme((
+  layout-padding-top: 2.25rem,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: 1.875rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+
+  slide-out-background: #f7f9fc,
+  slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
+  slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
+), default, default);
+
+$nb-themes: nb-register-theme((
+  layout-padding-top: 2.25rem,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: 1.875rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+
+  slide-out-background: #252547,
+  slide-out-shadow-color: 2px 0 3px #29157a,
+  slide-out-shadow-color-rtl: -2px 0 3px #29157a,
+), cosmic, cosmic);
+
+$nb-themes: nb-register-theme((
+  layout-padding-top: 2.25rem,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: 1.875rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+
+  slide-out-background: linear-gradient(270deg, #edf1f7 0%, #e4e9f2 100%),
+  slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
+  slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
+), corporate, corporate);
+
+$nb-themes: nb-register-theme((
+  layout-padding-top: 2.25rem,
+
+  menu-item-icon-margin: 0 0.5rem 0 0,
+
+  card-height-tiny: 13.5rem,
+  card-height-small: 21.1875rem,
+  card-height-medium: 28.875rem,
+  card-height-large: 36.5625rem,
+  card-height-giant: 44.25rem,
+  card-margin-bottom: 1.875rem,
+  card-header-with-select-padding-top: 0.5rem,
+  card-header-with-select-padding-bottom: 0.5rem,
+
+  select-min-width: 6rem,
+
+  slide-out-background: linear-gradient(270deg, #222b45 0%, #151a30 100%),
+  slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
+  slide-out-shadow-color-rtl: 0 4px 14px 0 #8f9bb3,
+), dark, dark);
+
+$nb-themes: nb-register-theme((
+
+  color-primary-100: #E6FBC8,
+  color-primary-200: #C8F794,
+  color-primary-300: #9DE85C,
+  color-primary-400: #73D134,
+  color-primary-500: #3CB300,
+  color-primary-600: #299900,
+  color-primary-700: #1A8000,
+  color-primary-800: #0E6700,
+  color-primary-900: #065500,
+  color-success-100: #C9FBD1,
+  color-success-200: #94F7AF,
+  color-success-300: #5DE790,
+  color-success-400: #35D07D,
+  color-success-500: #01B265,
+  color-success-600: #009966,
+  color-success-700: #008062,
+  color-success-800: #006759,
+  color-success-900: #005552,
+  color-info-100: #CDEBFD,
+  color-info-200: #9DD4FB,
+  color-info-300: #6BB4F3,
+  color-info-400: #4595E7,
+  color-info-500: #0F69D8,
+  color-info-600: #0A51B9,
+  color-info-700: #073C9B,
+  color-info-800: #042A7D,
+  color-info-900: #021D67,
+  color-warning-100: #FEFCD0,
+  color-warning-200: #FDF9A1,
+  color-warning-300: #FBF472,
+  color-warning-400: #F8EE4E,
+  color-warning-500: #F4E516,
+  color-warning-600: #D1C310,
+  color-warning-700: #AFA20B,
+  color-warning-800: #8D8107,
+  color-warning-900: #756A04,
+  color-danger-100: #FDE8CF,
+  color-danger-200: #FCCBA1,
+  color-danger-300: #F6A570,
+  color-danger-400: #ED804C,
+  color-danger-500: #E24916,
+  color-danger-600: #C23010,
+  color-danger-700: #A21B0B,
+  color-danger-800: #830B07,
+  color-danger-900: #6C0407,
+
+  color-basic-100: #E4F8C6,
+  color-basic-200: #BFEB8D,
+  color-basic-300: #C4F291,
+  color-basic-400: #4C8B22,
+  color-basic-500: #153F00,
+  color-basic-600: #0E3600,
+  color-basic-700: #092D00,
+  color-basic-800: #052400,
+  color-basic-900: #021E00,
+  color-basic-1000: #021E00,
+  color-basic-1100: #021E00,
+
+  background-basic-color-1: #FFFFFF,
+  background-basic-color-2: #FFFFFF, //no tan fondo xd
+  background-basic-color-3: #D0D9C1, //fondo   CFDCB8
+  background-basic-color-4: color-basic-100,
+
+  border-basic-color-1: color-basic-100,
+  border-basic-color-2: color-basic-300,
+  border-basic-color-3: color-basic-300,
+  border-basic-color-4: color-basic-600,
+  border-basic-color-5: color-basic-500,
+
+  shadow: 0 0.5rem 1rem 0 rgba(25, 30, 51, 0.24),
+
+  text-disabled-color: color-basic-700,
+), 'calgrow', default);

@@ -1,0 +1,147 @@
+<!-- 
+<div class="buttons-grid"> 
+    <nb-card class="button-dashboard">
+      <nb-card-body>
+        Kpi 1
+      </nb-card-body>
+    </nb-card>
+    <nb-card class="button-dashboard">
+      <nb-card-body>
+        Kpi 2
+      </nb-card-body>
+    </nb-card>
+    <nb-card class="button-dashboard">
+      <nb-card-body>
+        Kpi3
+      </nb-card-body>
+    </nb-card>
+    <nb-card class="button-dashboard">
+      <nb-card-body>
+        Kpi 4
+      </nb-card-body>
+    </nb-card>
+    <nb-card class="button-dashboard">
+      <nb-card-body>
+        Descargar PDF
+      </nb-card-body>
+    </nb-card>
+  </div> -->
+
+<!-- <div class="row">
+  <div class="col-md-3">
+      <nb-card size="medium">
+          <nb-card-header>
+            Fields
+          </nb-card-header>
+          <nb-list>
+            <nb-list-item *ngFor="let field of fields">
+                {{field}}
+            </nb-list-item>
+          </nb-list>
+        </nb-card>
+  </div>
+  <div class="col-md-3">
+      <nb-card size="medium">
+          <nb-card-header>
+            Sectors
+          </nb-card-header>
+          <nb-list>
+            <nb-list-item *ngFor="let sector of sectors">
+                {{sector}}
+            </nb-list-item>
+          </nb-list>
+        </nb-card>
+  </div>
+  <div class="col-md-3">
+      <nb-card size="medium">
+          <nb-card-header>
+            Plants
+          </nb-card-header>
+          <nb-list>
+            <nb-list-item *ngFor="let plant of plants">
+                {{plant}}
+            </nb-list-item>
+          </nb-list>
+        </nb-card>
+  </div>
+  <div class="col-md-3">
+      <nb-card size="medium">
+          <nb-card-header>
+            Fruits
+          </nb-card-header>
+          <nb-list>
+            <nb-list-item *ngFor="let fruit of fruits">
+                {{fruit}}
+            </nb-list-item>
+          </nb-list>
+        </nb-card>
+  </div>
+</div> -->
+
+
+<div class="row">
+  <div class="col-md-7">
+    <nb-card>
+        <nb-card-header>
+          Gráfico comparativo de promedios de crecimiento de frutos
+        </nb-card-header>
+      <nb-card-body>
+          <button nbButton (change)="recargar_plot()"> Recargar </button>
+          <ngx-chartjs-multiple-xaxis [data]="data_chart" [options]="chart_options"></ngx-chartjs-multiple-xaxis>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-md-5">
+    <nb-card>
+      <nb-card-header>
+        Seleccionar Para Comparar
+      </nb-card-header>
+      <nb-card-body>
+
+        <table [nbTreeGrid]="data" equalColumnsWidth>
+          <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+
+          <tr nbTreeGridRow [clickToToggle]="false" *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+
+          <ng-container *ngFor="let column of defaultColumns" [nbTreeGridColumnDef]="column">
+              <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef>{{column}}</th>
+
+            <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                <nb-tree-grid-row-toggle
+                [expanded]="row.expanded"
+                *ngIf="row.data.kind === 'dir' && ( row.data[column] != '' ||(row.data.planta != '' && column == 'sector')) ">
+              </nb-tree-grid-row-toggle>  
+              <!-- <nb-checkbox (checkedChange)="toggleSelectRow($event, row.data)" value="row.data.checked" *ngIf="row.data[column] != '' ||(row.data.planta != '' && column == 'sector')"> -->
+              <!-- </nb-checkbox> -->
+              <input type="checkbox" (change)="toggleSelectRow($event, row.data)" [(checked)]="row.data.checked" *ngIf="row.data[column] != '' ||(row.data.planta != '' && column == 'sector')">
+              {{(row.data.planta != "" && column == "sector")  && row.data.planta || row.data[column] }}
+
+            </td>
+          </ng-container>
+
+        </table>
+
+      </nb-card-body>
+    </nb-card>
+    <nb-card size="medium">
+        <nb-card-header>
+          Seleccionados
+        </nb-card-header>
+        <nb-list>
+          <nb-list-item *ngFor="let row of selectedRows">
+              {{row.planta && "Planta: "+row.planta || ""}}
+              {{row.campo && "Campo: "+row.campo || ""}}
+              {{row.sector && "Sector: "+row.sector || ""}}
+              {{row.fruta && "Fruta: "+row.fruta || ""}}
+          </nb-list-item>
+        </nb-list>
+      </nb-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+
+  </div>
+</div>
+

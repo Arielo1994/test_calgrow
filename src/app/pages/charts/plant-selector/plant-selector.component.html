@@ -1,0 +1,56 @@
+<!-- <nb-card>
+  <nb-card-body>
+    <nb-stepper #stepper>
+      <nb-step [stepControl]="fieldForm" label="CAMPO">
+        <form [formGroup]="fieldForm" (ngSubmit)="onFieldAdded()" class="step-container">
+          <p>Puedes añadir uno de los campos del menú desplegable al gráfico o puedes ver y seleccionar sus sectores.
+          </p>
+          <div class="input-group">
+            <nb-select placeholder="Selecciona un campo" [(selected)]="selectedFieldItem" formControlName="fieldCtrl"
+              [fullWidth]="true">
+
+              <nb-option *ngFor=" let field of fields" [value]="field"> {{ field.name }} </nb-option>
+
+            </nb-select>
+          </div>
+          <button nbButton type="button" (click)="onFieldSubmit()" nbStepperNext>Ver Sectores</button>
+          <button nbButton type="submit">Añadir Campo</button>
+          <button nbButton type="button" (click)="onPlantReset()" nbStepperPrevious>Reiniciar</button>
+        </form>
+      </nb-step>
+      <nb-step [stepControl]="sectorForm" label="SECTOR">
+        <form [formGroup]="sectorForm" (ngSubmit)="onSectorAdded()" class="step-container">
+          <p>Ahora puedes añadir uno de los sectores al gráfico o ver y seleccionar sus plantas</p>
+          <div class="input-group">
+            <nb-select placeholder="Selecciona un sector" [(selected)]="selectedSectorItem" formControlName="sectorCtrl"
+              [fullWidth]="true">
+
+              <nb-option *ngFor="let sector of sectors" [value]="sector"> {{ sector.name }} </nb-option>
+
+            </nb-select>
+          </div>
+          <button nbButton type="button" (click)="onSectorSubmit()" nbStepperNext>Ver Plantas</button>
+          <button nbButton type="submit">Añadir Sector</button>
+          <button nbButton type="button" nbStepperPrevious>Volver</button>
+          <button nbButton type="button" (click)="onPlantReset()" nbStepperPrevious>Reiniciar</button>
+        </form>
+      </nb-step>
+      <nb-step [stepControl]="plantForm" label="PLANTA">
+        <form [formGroup]="plantForm" (ngSubmit)="onPlantAdded()" class="step-container">
+          <p>Ahora puedes añadir una de las plantasal gráfico</p>
+          <div class="input-group">
+            <nb-select placeholder="Elige una planta" [(selected)]="selectedPlantItem" formControlName="plantCtrl"
+              [fullWidth]="true">
+
+              <nb-option *ngFor="let plant of plants" [value]="plant"> {{ plant.name }} </nb-option>
+
+            </nb-select>
+          </div>
+          <button nbButton type="submit" nbStepperNext>Añadir planta</button>
+          <button nbButton type="button" nbStepperPrevious>Volver</button>
+          <button nbButton type="button" (click)="onPlantReset()" nbStepperPrevious>Reiniciar</button>
+        </form>
+      </nb-step>
+    </nb-stepper>
+  </nb-card-body>
+</nb-card> -->

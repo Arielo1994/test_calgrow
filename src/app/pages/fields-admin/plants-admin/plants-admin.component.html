@@ -1,0 +1,51 @@
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12" [hidden]="isSelectionConfirmed">
+  <nb-card-body>
+    <nb-stepper #stepper>
+      <nb-step [stepControl]="fieldForm" label="CAMPO" *ngIf="selectFieldOption">
+        <form [formGroup]="fieldForm" (ngSubmit)="onFieldSubmit()" class="step-container">
+          <p>Selecciona uno de los campos del menú desplegable para continuar.</p>
+          <div class="input-group">
+            <nb-select placeholder="Selecciona un campo" [(selected)]="selectedFieldItem" formControlName="fieldCtrl"
+              [fullWidth]="true">
+
+              <nb-option *ngFor=" let field of fields" [value]="field"> {{ field.name }} </nb-option>
+
+            </nb-select>
+          </div>
+          <button nbButton nbStepperNext type="button" (click)="onFieldSubmit()">Confirmar selección</button>
+        </form>
+      </nb-step>
+      <nb-step [stepControl]="sectorForm" label="SECTOR">
+        <form [formGroup]="sectorForm" (ngSubmit)="onSectorSubmit()" class="step-container">
+          <p>Ahora selecciona uno de los sectores del campo elegido para proceder a gestionar las plantas asociadas</p>
+          <div class="input-group">
+            <nb-select placeholder="Selecciona un sector" (click)="onFieldSubmit()" [(selected)]="selectedSectorItem" formControlName="sectorCtrl"
+              [fullWidth]="true">
+
+              <nb-option *ngFor="let sector of sectors" [value]="sector"> {{ sector.name }} </nb-option>
+
+            </nb-select>
+          </div>
+          <button nbButton type="submit" nbStepperNext>Confirmar selección</button>
+          <button nbButton type="button" nbStepperPrevious>Volver</button>
+        </form>
+      </nb-step>
+    </nb-stepper>
+  </nb-card-body>
+</nb-card>
+
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12" [hidden]="!isSelectionConfirmed">
+  <nb-card-header>
+    Gestión de plantas de {{ selectedFieldName }} -> {{ selectedSectorName }}
+    <div class="input-group">
+      <button nbButton (click)="annulateSelection()">Volver a selección de sector</button>
+      <button nbButton (click)="stepper.reset(); annulateSelection()" *ngIf="selectFieldOption">Volver a selección de campo</button>
+    </div>
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source" (createConfirm)="onCreateConfirm($event)"
+    (editConfirm)="onEditConfirm($event)" (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

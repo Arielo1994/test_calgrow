@@ -1,0 +1,35 @@
+@import '../../../@theme/styles/themes';
+
+// @include nb-install-component() {
+//   nb-card {
+//     transform: translate3d(0, 0, 0);
+//   }
+// }
+
+// // stepper css
+// :host ::ng-deep nb-stepper .step-content {
+//   text-align: center;
+
+//   button {
+//     cursor: pointer;
+//     margin: 0.5rem;
+//   }
+// }
+
+.button-dashboard{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 10px;
+  padding-bottom: 5px;
+}
+
+div.buttons-grid > div > nb-card > nb-card-body {
+  padding: 5px;
+}
+
+.buttons-grid{
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+ grid-gap: 5px;
+
+}

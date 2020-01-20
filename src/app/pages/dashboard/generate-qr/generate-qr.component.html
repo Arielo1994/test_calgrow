@@ -1,0 +1,82 @@
+
+<mat-dialog-content class="modal">
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12" [hidden]="isSelectionConfirmed">
+  <nb-card-body class="end text-center">
+    <nb-stepper #stepper>
+      <nb-step [stepControl]="sectorForm" label="SECTOR">
+        <form [formGroup]="sectorForm" (ngSubmit)="onSectorSubmit()" class="step-container">
+          <p>Ahora selecciona uno de los sectores del campo elegido para continuar</p>
+          <div class="input-group">
+            <nb-select placeholder="Selecciona un sector" [(selected)]="selectedSectorItem" formControlName="sectorCtrl"
+              [fullWidth]="true">
+
+              <nb-option *ngFor="let sector of sectors" [value]="sector"> {{ sector.name }} </nb-option>
+
+            </nb-select>
+          </div>
+          <button nbButton class="mt-2" type="button" (click)="onSectorSubmit()" nbStepperNext>Confirmar selección</button>
+        </form>
+      </nb-step>
+      <nb-step [stepControl]="plantForm" label="PLANTA">
+        <form [formGroup]="plantForm" (ngSubmit)="onPlantSubmit()" class="step-container">
+          <p>Ahora selecciona una de las plantas del sector elegido para proceder a agregar metricas</p>
+          <div class="input-group">
+            <nb-select placeholder="Selecciona una planta" [(selected)]="selectedPlantItem" formControlName="plantCtrl"
+              [fullWidth]="true">
+
+              <nb-option *ngFor="let plant of plants" [value]="plant"> {{ plant.name }} </nb-option>
+
+            </nb-select>
+          </div>
+          <button nbButton class="mt-2" type="button" (click)="onPlantSubmit()" nbStepperNext>Confirmar selección</button>
+        </form>
+      </nb-step>
+    </nb-stepper>
+  </nb-card-body>
+</nb-card>
+
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12 text-center" [hidden]="!isSelectionConfirmed">
+  <nb-card-header>
+    <h5>Información de la planta {{ selectedPlantName }}</h5>
+  </nb-card-header>
+
+  <nb-card-body>
+  <div class="row">
+    <div class="col-md-6 col-lg-6 col-xxxl-6">
+      
+      <h6>Nombre De La Planta:</h6>
+        <p>{{ selectedPlantItem.name }}.</p>
+      <h6>Posicion GPS:</h6>
+        <p>{{ selectedPlantItem.gps_pos }}</p>
+        <p *ngIf="selectedPlantItem.gps_pos === ''">No posee actualmente.</p>
+      <h6>Fecha de Creacion:</h6>
+        <p>{{ selectedPlantItem.createdAt | date:'medium' }}</p>
+      <h6>Sector al que pertenece:</h6>
+        <p>{{ selectedSectorName }}.</p>
+      <h6>Campo al que pertenece:</h6>
+        <p>{{ selectedFieldName }}.</p>
+      <h6>Serial</h6>
+        <p>{{ selectedPlantItem.id }}</p>
+    </div>
+    
+    <div class="col-md-6 col-lg-6 col-xxxl-6" >
+        <h5>Codigo Qr</h5>
+        <div #canvas #screen><a #downloadLink></a>
+        <ngx-qrcode 
+          [qrc-element-type]="elementType" 
+          [qrc-value] = "value"
+          qrc-class = "aclass"
+          qrc-errorCorrectionLevel = "L">
+        </ngx-qrcode>
+      </div>
+        
+    </div> 
+  </div>
+  <button nbButton (click)="download()">
+    Descargar Qr
+   </button>
+</nb-card-body>
+
+</nb-card>
+
+</mat-dialog-content>

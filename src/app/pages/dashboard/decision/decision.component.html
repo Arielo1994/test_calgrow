@@ -1,0 +1,22 @@
+<nb-card class="text-center">
+  <nb-card-header>
+    <h3>
+      {{tittle}}
+    </h3>
+  </nb-card-header>
+
+  <nb-card-body>
+    <div>{{content}}</div>
+    <div class="mt-3 row text-center">
+      
+        <div class='col-12'>
+          <button class="mr-4" nbButton (click)="close()">Sí</button>
+          <button nbButton (click)="closeN()">No</button>
+        </div>
+          
+        
+
+    </div>
+    
+  </nb-card-body>
+</nb-card>

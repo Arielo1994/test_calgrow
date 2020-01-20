@@ -1,0 +1,46 @@
+<div class="buttons-grid">
+  <div  *ngFor="let statusCard of statusCards">
+    <nb-card>
+        <nb-card-body class="button-dashboard">
+            <button nbButton (click)="handleClick(statusCard.function)" [routerLink]='statusCard.link' size="large" [status]="statusCard.type"><nb-icon [icon]="statusCard.icon"></nb-icon></button>
+            <div class="center">
+                <p>{{ statusCard.title }} </p>
+            </div> 
+        </nb-card-body>           
+    </nb-card>
+  </div>
+</div>
+
+<div class="row" *ngIf="selectedFieldItem">
+  <div class="col-lg-9 col-md-9">
+  <nb-card>
+            <nb-card-header>
+                <nb-select size="small" fullWidth placeholder="Campos" [(selected)]="selectedFieldItem" >
+                      <nb-option *ngFor=" let field of fields" (click)="updateGPS(field)" [value]="field">{{field.name}}</nb-option>                                     
+                </nb-select>
+            </nb-card-header>
+            <ngx-chart-dashboard [fieldId]="selectedFieldItem.id"></ngx-chart-dashboard>          
+        </nb-card>
+  
+    
+    <div class="row">
+      <div class="col-xs-12 col-lg-12 col-md-12 mb-5">
+        <ngx-lastmeasurements [field]=selectedFieldItem></ngx-lastmeasurements>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-xs-12 col-sm-12 col-lg-3 col-md-3">
+      <div class="col-lg-12 col-md-12">
+          <ngx-weather [field]="selectedFieldItem"></ngx-weather>
+      </div>
+      <div class="col-lg-12 col-md-12">
+        <nb-card>
+            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+              <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>            
+        </nb-card>
+    </div>
+  </div>
+</div>
+

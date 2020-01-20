@@ -1,0 +1,28 @@
+
+<div class="grid">
+  <div>
+      <div class="search">
+          <input fullWidth id="search" autocomplete='off' [(ngModel)]="address" (keyup)="getAddressByName($event)" class="input-map" type="text" nbInput placeholder="Buscar dirección">
+          <nb-card *ngIf="addresses.length" class="option-box">              
+                <ul>
+                    <li *ngFor="let address of addresses" (click)="selectedAddress(address.place_id)">{{address.description}}</li>
+                </ul>
+          </nb-card> 
+      </div>        
+      <div class="map">       
+          <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+              <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+              (dragEnd)="markerDragEnd($event)">
+              </agm-marker>
+          </agm-map>
+      </div>
+  </div>  
+  <div class="data">                    
+      <form [formGroup]="fieldForm" (ngSubmit)="createField()">                    
+        <div class="section"><input type="text" nbInput fullWidth placeholder="Nombre" formControlName="fieldName"></div>
+        <div class="section"> <p class="label">Latitude</p><p>{{latitude}}</p></div>
+        <div class="section"> <p class="label">Longitud</p> <p>{{longitude}}</p></div>
+        <div class="submit-button"><button type="submit" nbStepperNext fullWidth nbButton status="primary">Crear campo</button></div>
+      </form>
+  </div>              
+</div>

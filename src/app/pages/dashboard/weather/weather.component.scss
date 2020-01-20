@@ -1,0 +1,94 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+
+  nb-card-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .location,
+  .date {
+    display: block;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  .desc{
+    display: flex;
+    font-weight: 800;
+    text-transform: capitalize;
+    justify-content: center;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+  }
+
+  .header{
+    display: block;
+  }
+
+  .location {
+    margin-bottom: 0.1rem;
+  }
+
+  .today {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .today-temperature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem 1.5rem;
+  }
+
+  .indicator-icon{
+      color: skyblue;
+      font-size: 2em;
+  }
+
+  .today-icon {
+    background-color: rgb(255, 255, 142);
+    border-radius: 30px;
+    width: 5em;
+    height: 5em;    
+  }
+
+  .today-details {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+  }
+
+  .parameter {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .parameter-name,
+  .parameter-value {
+    display: block;
+  }
+
+  .caption {
+    text-transform: uppercase;
+  }
+
+  .weekly-forecast {
+    display: flex;
+    justify-content: space-around;
+    margin: auto 0;
+  }
+
+  .day {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .weather-icon {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+}

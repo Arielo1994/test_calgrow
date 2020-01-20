@@ -1,0 +1,31 @@
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12" [hidden]="isSelectionConfirmed">
+  <nb-card-body>
+    <form [formGroup]="fieldForm" (ngSubmit)="onFieldSubmit()" class="step-container">
+      <p>Selecciona uno de los campos del menú desplegable para proceder a gestionar los sectores asociados.</p>
+      <div class="input-group">
+        <nb-select placeholder="Selecciona un campo" [(selected)]="selectedFieldItem" formControlName="fieldCtrl"
+          [fullWidth]="true">
+          <nb-option *ngFor=" let field of fields" [value]="field"> {{ field.name }} </nb-option>
+        </nb-select>
+      </div>
+      <div>
+        <button nbButton type="submit">Confirmar selección</button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>
+
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12" [hidden]="!isSelectionConfirmed">
+  <nb-card-header *ngIf="selectFieldOption">
+    Gestión de sectores de {{ selectedFieldName }}
+    <div class="input-group">
+      <button nbButton (click)="annulateSelection()">Volver a selección de campo</button>
+    </div>
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source" (createConfirm)="onCreateConfirm($event)"
+      (editConfirm)="onEditConfirm($event)" (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,36 @@
+    <nb-card class="modal">
+        <nb-card-body>
+          <nb-stepper orientation="horizontal" disableStepNavigation="true" selectedIndex="{{indexStep}}">
+              <nb-step [label]="labelOne">
+                <ng-template #labelOne>Crear Campo</ng-template>
+                <ngx-field (getNewField)="setField($event)"></ngx-field>          
+              </nb-step>
+              <nb-step [label]="labelTwo">
+                <ng-template #labelTwo>Crear Sector</ng-template>
+                <ngx-smart-table-sector *ngIf="field" [idField]="field.id" [selectFieldOption]="false"></ngx-smart-table-sector>
+                <div class="end">
+                  <button nbButton nbStepperNext (click)="setSector()">Siguiente</button>
+                </div>
+              </nb-step>
+              <nb-step [label]="labelThree">
+                  <ng-template #labelThree>Crear Planta</ng-template>
+                  <ngx-smart-table-plant *ngIf="plantStep" [idField]="field.id" [selectFieldOption]="false"></ngx-smart-table-plant>
+                  <div class="end">
+                      <button nbButton nbStepperPrevious>Anterior</button>
+                      <button nbButton nbStepperNext (click)="setPlant()">Siguiente</button>    
+                  </div>
+              </nb-step>
+              <nb-step [label]="labelFour">          
+                <ng-template #labelFour>Crear Fruto</ng-template>
+                <ngx-smart-table-fruit *ngIf="field" [idField]="field.id" [selectFieldOption]="false"></ngx-smart-table-fruit>
+                <div class="end">
+                    <button nbButton nbStepperPrevious>Anterior</button>
+                    <button nbButton (click)="close()">Terminar</button>
+                </div>          
+              </nb-step>
+            </nb-stepper>
+          </nb-card-body>
+          
+      </nb-card>
+
+      

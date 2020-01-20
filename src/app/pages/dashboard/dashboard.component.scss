@@ -1,0 +1,73 @@
+@import '../../@theme/styles/themes.scss';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+
+
+@include nb-install-component() {
+
+  .summary-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    background-color: #f4f4f5;
+    padding: 1rem 0 1rem 0;
+    justify-content: space-around;
+    border: 1px solid #edf1f7;
+    border-left: none;
+    position: relative;
+    border-right: none;
+  }
+
+  .title{
+    font-weight: bold;
+  }
+
+  .sebm-google-map-container {
+    height:300px;
+  }
+  .two-columns{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .size-medium:not(.input-full-width) {
+     max-width: 8rem !important;
+  }
+
+  
+  .button-dashboard{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 10px;
+    padding-bottom: 5px;
+  }
+
+  .center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .center p{
+    font-weight: bold;
+    margin: 0;
+    
+  }
+
+  .nb-theme-calgrow nb-card {
+    margin-bottom: 0rem !important;
+  }
+
+  div.buttons-grid > div > nb-card > nb-card-body {
+    padding: 5px;
+  }
+
+  .buttons-grid{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+   grid-gap: 5px;
+
+  }
+
+}

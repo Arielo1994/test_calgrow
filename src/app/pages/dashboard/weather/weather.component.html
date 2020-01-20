@@ -1,0 +1,36 @@
+  
+<nb-card style="height: 364px;">
+  <nb-card-body *ngIf="currentWeather">
+    <div class="header">
+        <span class="h5 location">{{field.name}}</span>
+        <span class="date">{{address}}</span>
+        <span class="date">{{date}}</span>
+        <br> 
+    </div> 
+    <div class="desc">{{weatherDescription}}</div>  
+    <div class="today">
+      <span class="today-temperature h1">{{temp}}&deg;C</span>        
+      <img src="{{weatherIcon}}" class="today-icon"> 
+    </div>
+
+    <div class="today-details">
+      <div class="parameter">
+        <span class="caption parameter-name"><i class="fas fa-angle-up indicator-icon"></i>max</span>          
+        <span class="parameter-value">{{temp_max}}&deg;C</span>      
+      </div>
+      <div class="parameter">
+          <span class="caption parameter-name"><i class="fas fa-angle-down indicator-icon"></i>min</span>
+        <span class="parameter-value">{{temp_min}}&deg;C</span>        
+      </div>
+      <div class="parameter">
+        <span class="caption parameter-name"><i class="fa fa-exchange indicator-icon"></i>viento</span>
+        <span class="parameter-value">{{currentWeather.wind.speed}} m/s</span>
+        
+      </div>
+      <div class="parameter">
+        <span class="caption parameter-name"><i class="fa fa-tint indicator-icon"></i>humedad</span>        
+        <span class="parameter-value">{{currentWeather.main.humidity}}%</span>        
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

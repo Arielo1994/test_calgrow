@@ -1,0 +1,21 @@
+nb-card{
+    box-shadow: 0 0rem 0rem 0 rgba(25, 30, 51, 0.24) !important;
+    margin-bottom: 0 !important;
+}
+
+
+.end{
+    display: flex;
+    justify-content: space-around;
+    margin: 1em;
+}
+.modal{
+    position: relative;
+}
+
+@media screen and (min-width:800px) {
+    .modal{
+        width: 800px;
+        position: relative;
+    }
+}
