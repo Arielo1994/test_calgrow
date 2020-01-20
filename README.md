@@ -69,3 +69,16 @@ Visit [our homepage](http://akveo.com/) or simply leave us a message to [contact
 ### From Developers
 Made with :heart: by [Akveo team](http://akveo.com/). Follow us on [Twitter](https://twitter.com/akveo_inc) to get the latest news first!
 We're always happy to receive your feedback!
+# test_calgrow
+
+test
+
+Se creo componente comparative-chart
+primero carga datos de campos/ sectores/ plantas / frutas
+y los transforma en un arbol para ser renderizados en componente nebular
+treegrid.
+Cada elemento de la tabla desplegable puede ser seleccionada/deseleccionada y se mostrara/ocultara 
+en una lista de elementos seleccionados bajo la tabla desplegable. 
+
+Falta:
+  Cargar plot segun lista seleccionada.
